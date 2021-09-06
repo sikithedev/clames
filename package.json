@@ -1,6 +1,6 @@
 {
   "name": "clames",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "A blazing fast and simple JavaScript utility for conditionally building className strings.",
   "repository": {
     "type": "git",
