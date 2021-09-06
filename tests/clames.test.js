@@ -58,3 +58,30 @@ test("handles arrays that are empty", () => {
 test("handles nested arrays that have empty nested arrays", () => {
   expect(clames("a", [[]])).toBe("a");
 });
+
+test("handles all types of truthy and falsy property values as expected", () => {
+  expect(
+    clames({
+      // falsy:
+      null: null,
+      emptyString: "",
+      noNumber: NaN,
+      zero: 0,
+      negativeZero: -0,
+      false: false,
+      undefined: undefined,
+
+      // truthy (literally anything else):
+      nonEmptyString: "foobar",
+      whitespace: " ",
+      function: Object.prototype.toString,
+      emptyObject: {},
+      nonEmptyObject: { a: 1, b: 2 },
+      emptyList: [],
+      nonEmptyList: [1, 2, 3],
+      greaterZero: 1,
+    })
+  ).toBe(
+    "nonEmptyString whitespace function emptyObject nonEmptyObject emptyList nonEmptyList greaterZero"
+  );
+});
