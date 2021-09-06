@@ -4,11 +4,15 @@ A blazing fast and simple JavaScript utility for conditionally building `classNa
 
 ## Install
 
-```
-# via npm
-npm install clames
+### via npm:
 
-# via yarn
+```
+npm install clames
+```
+
+### or yarn:
+
+```
 yard add clames
 ```
 
@@ -17,18 +21,31 @@ yard add clames
 ```js
 import clames from 'clames';
 
-clames({ a: true, b: false, c: 0, d: null, e: undefined, f: 1 }); // => 'a f'
-
-clames({ a: true }, 'b', 0)); // => 'a b'
-
-clames('', 'b', {}, '')); // => 'b'
-
-clames(['a', 0, null, undefined, false, true, 'b']); // => 'a b'
-
-clames(['a', 'b'], ['c', 'd']); // => 'a b c d'
-
-clames(['a', ['b', ['c', { d: true }]]])); // => 'a b c d'
+clames('foo', 'bar'); // => 'foo bar'
+clames({ 'foo-bar': true }); // => 'foo-bar'
+clames({ 'foo-bar': false }); // => ''
+clames({ foo: true, bar: false, baz: 0, qux: null, quux: undefined, quuz: 1 }); // => 'foo quuz'
+clames({ foo: true }, 'bar', 0)); // => 'foo bar'
+clames('', 'foo', {}, '')); // => 'foo'
+clames(['foo', 0, null, undefined, false, true, 'baz']); // => 'foo baz'
+clames(['foo', 'bar'], ['baz', 'qux']); // => 'foo bar baz qux'
+clames(['foo', ['bar', ['baz', { qux: true }]]])); // => 'foo bar baz qux'
 ```
+
+### Dynamic class names
+
+```js
+const buttonType = 'primary';
+clames({ [`button-${buttonType}`]: true }); // => 'button-primary'
+```
+
+## API
+
+### clames(...input)
+
+#### input: `string | number | boolean | object | array | undefined | null`
+
+#### returns: `string`
 
 ## License
 

@@ -2,18 +2,12 @@
   "name": "clames",
   "version": "1.0.0",
   "description": "A blazing fast and simple JavaScript utility for conditionally building className strings.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sikithedev/clames.git"
-  },
+  "repository": "https://github.com/sikithedev/clames.git",
   "main": "src/index.js",
   "scripts": {
     "test": "jest"
   },
-  "author": {
-    "name": "Muaz Sikiric",
-    "email": "muaaz.sikiric@gmail.com"
-  },
+  "author": "Muaz Sikiric <muaaz.sikiric@gmail.com>",
   "keywords": [
     "css",
     "util",
