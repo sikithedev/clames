@@ -1,32 +1,32 @@
 const clames = (...args) => {
-  let classes = [];
+  const classes = [];
 
-  args.forEach((arg) => {
-    let parsed = parseValue(arg);
-    parsed && classes.push(parsed);
+  args.forEach(arg => {
+    const parsedArg = parseValue(arg);
+    parsedArg && classes.push(parsedArg);
   });
 
-  return classes.join(" ");
+  return classes.join(' ');
 };
 
-const parseValue = (value) => {
+const parseValue = args => {
   const classes = [];
-  const valueType = typeof value;
+  const argType = typeof args;
 
-  if (valueType === "string" || valueType === "number") {
-    value && classes.push(value);
-  } else if (Array.isArray(value) && value.length) {
-    value.forEach((item) => {
-      let innerItems = parseValue(item);
-      innerItems && classes.push(innerItems);
+  if (argType === 'string' || argType === 'number') {
+    args && classes.push(args);
+  } else if (Array.isArray(args) && args.length) {
+    args.forEach(arg => {
+      const inner = parseValue(arg);
+      inner && classes.push(inner);
     });
-  } else if (valueType === "object") {
-    for (const key in value) {
-      value[key] && classes.push(key);
+  } else if (argType === 'object') {
+    for (const key in args) {
+      args[key] && classes.push(key);
     }
   }
 
-  return classes.join(" ");
+  return classes.join(' ');
 };
 
 module.exports = clames;
