@@ -6,13 +6,13 @@ A blazing fast and simple JavaScript utility for conditionally building `classNa
 
 ### via npm:
 
-```
+```bash
 npm install clames
 ```
 
 ### or yarn:
 
-```
+```bash
 yard add clames
 ```
 
@@ -20,6 +20,8 @@ yard add clames
 
 ```js
 import clames from 'clames';
+// OR
+const clames = require('clames')
 
 clames('foo', 'bar'); // => 'foo bar'
 clames({ 'foo-bar': true }); // => 'foo-bar'
@@ -30,6 +32,7 @@ clames('', 'foo', {}, '')); // => 'foo'
 clames(['foo', 0, null, undefined, false, true, 'baz']); // => 'foo baz'
 clames(['foo', 'bar'], ['baz', 'qux']); // => 'foo bar baz qux'
 clames(['foo', ['bar', ['baz', { qux: true }]]])); // => 'foo bar baz qux'
+clames('foo', [1 && 'bar', { baz: false, qux: null }, ['quux', ['quuz']]], 'corge'); // => 'foo bar quux quuz corge'
 ```
 
 ### Dynamic class names
@@ -47,6 +50,6 @@ clames({ [`button-${buttonType}`]: true }); // => 'button-primary'
 
 #### returns: `string`
 
-## License
+## [MIT](LICENSE) License
 
-MIT © Muaz Sikiric (sikithedev)
+Copyright © 2021, Muaz Sikiric [(sikithedev)](https://github.com/sikithedev)

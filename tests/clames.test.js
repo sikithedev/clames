@@ -85,3 +85,14 @@ test('handles all types of truthy and falsy property values as expected', () => 
     'nonEmptyString whitespace function emptyObject nonEmptyObject emptyList nonEmptyList greaterZero'
   );
 });
+
+/* test('handles duplicates', () => {
+  expect(
+    clames('f', { a: true, b: false, c: 0, d: null, e: undefined, f: 1 }, 'a')
+  ).toBe('f a');
+  expect(clames(['a', { a: true }, [{ a: true }]])).toBe('a a a');
+  expect(clames(['a', ['b', ['c', { b: true }]]])).toBe('a b c');
+  expect(clames(['a', 0, null, undefined, false, { ab: true }, 'ab'])).toBe(
+    'a ab'
+  );
+}); */
