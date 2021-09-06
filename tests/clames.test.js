@@ -35,7 +35,7 @@ test("handles multiple array arguments", () => {
   expect(clames(["a", "b"], ["c", "d"])).toBe("a b c d");
 });
 
-test("handles arrays that include falsy and true values", () => {
+test("handles arrays that include truthy and falsy values", () => {
   expect(clames(["a", 0, null, undefined, false, true, "b"])).toBe("a b");
 });
 
