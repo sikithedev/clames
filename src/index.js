@@ -1,8 +1,9 @@
-export default (...args) => {
+const clames = (...args) => {
   let classes = [];
 
   args.forEach((arg) => {
-    /* string += string ? ${parseValue(arg)} */
+    let parsed = parseValue(arg);
+    parsed && classes.push(parsed);
   });
 
   return classes.join(" ");
@@ -27,3 +28,5 @@ const parseValue = (value) => {
 
   return classes.join(" ");
 };
+
+module.exports = clames;
