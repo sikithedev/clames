@@ -14,7 +14,7 @@ const parseValue = (value) => {
   const valueType = typeof value;
 
   if (valueType === "string" || valueType === "number") {
-    classes.push(value);
+    value && classes.push(value);
   } else if (Array.isArray(value) && value.length) {
     value.forEach((item) => {
       let innerItems = parseValue(item);
