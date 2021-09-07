@@ -1,4 +1,4 @@
-const clames = require('../src');
+const clames = require('..');
 
 test('keeps object keys with truthy values', () => {
   expect(clames({ a: true, b: false, c: 0, d: null, e: undefined, f: 1 })).toBe(
@@ -86,13 +86,15 @@ test('handles all types of truthy and falsy property values as expected', () => 
   );
 });
 
-/* test('handles duplicates', () => {
+test('handles duplicates', () => {
+  expect(clames('foo', 'foo', 'bar')).toBe('foo bar');
+  expect(clames('foo', { foo: false, bar: true })).toBe('foo bar');
   expect(
     clames('f', { a: true, b: false, c: 0, d: null, e: undefined, f: 1 }, 'a')
   ).toBe('f a');
-  expect(clames(['a', { a: true }, [{ a: true }]])).toBe('a a a');
+  expect(clames(['a', { a: true }, [{ a: true }]])).toBe('a');
   expect(clames(['a', ['b', ['c', { b: true }]]])).toBe('a b c');
   expect(clames(['a', 0, null, undefined, false, { ab: true }, 'ab'])).toBe(
     'a ab'
   );
-}); */
+});
