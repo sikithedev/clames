@@ -1,12 +1,12 @@
 {
   "name": "clames",
-  "version": "1.1.0",
-  "description": "A blazing fast, simple, and framework agnostic JavaScript utility for conditionally building className strings.",
+  "version": "1.1.1",
+  "description": "A blazing fast, simple, and framework-agnostic JavaScript utility for conditionally building className strings.",
   "repository": {
     "type": "git",
     "url": "https://github.com/sikithedev/clames.git"
   },
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
