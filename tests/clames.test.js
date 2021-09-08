@@ -90,8 +90,13 @@ test('handles duplicates', () => {
   expect(clames('foo', 'foo', 'bar')).toBe('foo bar');
   expect(clames('foo', { foo: false, bar: true })).toBe('foo bar');
   expect(
-    clames('f', { a: true, b: false, c: 0, d: null, e: undefined, f: 1 }, 'a')
-  ).toBe('f a');
+    clames(
+      'foo',
+      { bar: true, baz: false, qux: 0, foo: 1 },
+      true && 'foo',
+      'bar'
+    )
+  ).toBe('foo bar');
   expect(clames(['a', { a: true }, [{ a: true }]])).toBe('a');
   expect(clames(['a', ['b', ['c', { b: true }]]])).toBe('a b c');
   expect(clames(['a', 0, null, undefined, false, { ab: true }, 'ab'])).toBe(
